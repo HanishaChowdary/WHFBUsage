@@ -19,15 +19,21 @@ You likely already have the pre-reqs for this, especially if you’re doing much
 
 Firstly, let's retrieve the User Registration Details for WHFB to a Custom Log in Log Analytics workspace. For which, I am using a Logic App with the below logic considering all the [Service limits](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=azure-portal) while fetching large datasets too.
 
-When you run a call to the Graph API that has more results than your $top count is limited to (max 999) then you get a property in the body of the request called @odata.nextLink. 
+When you run a call to the Graph API that has more results than your $top count (is limited to max 999) then you get a property in the body of the request called @odata.nextLink. If the number of results is less than or equal to your top count then that property simply doesn’t exist. 
 
 <img width="590" alt="image" src="https://user-images.githubusercontent.com/111733151/185876510-a1e734c1-dde5-4716-a164-f46541c31061.png">
 
 
-I will be handling the pagination of this Graph API, or indeed any other OData compliant API, through a HTTP Connector in the Logic Apps. 
 
-If the number of results is less than or equal to your top count then that property simply doesn’t exist. There are often many ways to achieve an outcome, and here’s how I’ve done it.
-I initialize a few variables: A Boolean that is used in the looping logic, an array variable to store the items retrieved from the API, and a string variable for the odatanext link.
+
+There are often many ways to achieve an outcome, and here’s how I’ve done it. I will be handling the pagination of this Graph API, or indeed any other OData compliant API, through a HTTP Connector in the Logic Apps.
+
+
+
+I initialized a few variables: A Boolean that is used in the looping logic, an array variable to store the items retrieved from the API, and a string variable for the odatanext link.
+
+
+ 
 
 ![image](https://user-images.githubusercontent.com/111733151/185876649-31da0591-18eb-4ca6-8470-907e7414c049.png)
 
@@ -35,11 +41,11 @@ I initialize a few variables: A Boolean that is used in the looping logic, an ar
 GET the Registered WHFB Users through the HTTP Request. Since, I have total registered Users less than 999 and to handle odatanextlink, I will be using $top = 10.
 The default top count is 100 and you can cut down on the time this processes by making it as high as it goes: 999 if you have large number of users.
 
-In order to use Azure ActiveDirectory Oauth, you can create an application on Azure AD, create a Client secret and also add API permissions for AuditLog.Read.All and 
-UserAuthenticationMethod.Read.All
+In order to use Azure ActiveDirectory Oauth for the HTTP GET request, you need to register an application on Azure AD, create a Client secret and also add API permissions for AuditLog.Read.All and UserAuthenticationMethod.Read.All
 
 
-<img width="596" alt="image" src="https://user-images.githubusercontent.com/111733151/185914109-6730ca9f-9604-46ba-869f-d1ea7b63565e.png">
+
+![image](https://user-images.githubusercontent.com/111733151/185959639-26c4a535-635f-4613-91f1-913a798ce6f3.png)
 
 
 ![image](https://user-images.githubusercontent.com/111733151/185876768-8cfd4eeb-464a-486a-95e3-9cc737dd07a8.png)
