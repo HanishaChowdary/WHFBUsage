@@ -36,7 +36,11 @@ A table showing each device, each user and the counts of times the user signed-i
 Let's get started!!!
 
 You likely already have the pre-reqs for this, especially if you’re doing much w/ Azure AD today.    
-	• [Azure Monitor workbooks for reports | Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)
+* [Azure Monitor Workbooks for reports | Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)
+	
+* [Azure Logic apps Overview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)
+
+	
 
 Firstly, let's retrieve the User Registration Details for WHFB to a Custom Log in Log Analytics workspace. For which, I am using a Logic App with the below logic considering all the [Service limits](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=azure-portal) while fetching large datasets too.
 
