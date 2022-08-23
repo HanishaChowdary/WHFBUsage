@@ -98,7 +98,7 @@ Once the data is moved to the Custom Log, we would see it as below
 
 Now, we can use this Registration details from the Custom Log, Compare with our WHFB Usage from Sign in Logs and generate the Analysis. The JSON code for this specific part can be used and build on top of [Michael's workbook](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-ad-sign-in-logs-workbooks-know-who-is-using-windows-hello/ba-p/2661980)
 
-The JSON code will include 
+This JSON code will include 
 
 Section 1 - “Windows Hello for Business Registration Vs Usage”
 A pie chart showing number of users registered with WHFB and number of users using WHFB among them.
