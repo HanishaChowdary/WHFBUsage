@@ -104,7 +104,7 @@ Section 1 - “Windows Hello for Business Registration Vs Usage”
 A pie chart showing number of users registered with WHFB and number of users using WHFB among them.
 
 Section 2 - “Windows Hello for Business Usage – Per-Device and Per-User Authentication Counts”
-A table showing each device, each user and the counts of times the user signed-in via WH4B along with their User Prinicpal Name.
+A table showing each device, each user and the counts of times the user signed-in via WH4B along with their User Principal Name.
 
 
 ![image](https://user-images.githubusercontent.com/111733151/185877283-16e73359-81c8-4ee9-872e-5a276b51d7d8.png)
