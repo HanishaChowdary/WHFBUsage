@@ -121,7 +121,7 @@ Once the data is moved to the Custom Log, we would see it as below
 ![image](https://user-images.githubusercontent.com/111733151/185877209-49c549f6-8611-4548-8640-a8b17f8f92ff.png)
 
 
-Now, we can use this Registration details from the Custom Log, Compare with our WHFB Usage from Sign in Logs and generate the Analysis. The JSON code for this specific part can be used and build on top of [Michael's workbook](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-ad-sign-in-logs-workbooks-know-who-is-using-windows-hello/ba-p/2661980)
+Now, we can use this Registration details from the Custom Log, Compare with our WHFB Usage from Sign in Logs and generate the Analysis. The JSON code for this specific part can be used to build on top of [Michael's workbook](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-ad-sign-in-logs-workbooks-know-who-is-using-windows-hello/ba-p/2661980)
 
 
 
