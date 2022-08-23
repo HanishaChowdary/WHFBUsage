@@ -1,3 +1,9 @@
+# WHFB Usage Analysis with Sign in Logs + User Registration Details
+
+
+
+
+
 It all started when I was researching for a report to pull large data sets on the Usage of WHFB in an organization. Fortunately, I found this great blog [here](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-ad-sign-in-logs-workbooks-know-who-is-using-windows-hello/ba-p/2661980) by Michael Hildebrand which helped me to kick start. 
 
 However, I had a question about "How many users have registered for WHFB Vs their Usage?" 
