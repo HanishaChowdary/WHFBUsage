@@ -20,10 +20,10 @@ This post will take you through the steps of retrieving the User Registration De
 
 I have added another section to Michael's workbook and tweaked the Section 2. The JSON code in this repository will include 
 
-Section 1 - “Windows Hello for Business Registration Vs Usage”
+* Section 1 - “Windows Hello for Business Registration Vs Usage”
 A pie chart showing number of users registered with WHFB and number of users using WHFB among them.
 
-Section 2 - “Windows Hello for Business Usage – Per-Device and Per-User Authentication Counts”
+* Section 2 - “Windows Hello for Business Usage – Per-Device and Per-User Authentication Counts”
 A table showing each device, each user and the counts of times the user signed-in via WH4B along with their User Principal Name.
 
 
