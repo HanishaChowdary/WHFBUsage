@@ -8,7 +8,7 @@
       "type": 3,
       "content": {
         "version": "KqlItem/1.0",
-        "query": "let DistinctRegUsers = UserRegistrationDetails_CL\r\n| distinct UserPrincipalName_s, UserDisplayName_s;\r\nlet WHFBUsage = SigninLogs\r\n    | where Resource == \"Microsoft.aadiam\" and AppDisplayName == \"Windows Sign In\"\r\n    | extend authenticationMethod_ = tostring(parse_json(AuthenticationDetails)[0].authenticationMethod)\r\n    | extend succeeded_ = tostring(parse_json(AuthenticationDetails)[0].succeeded)\r\n    | where authenticationMethod_ == \"Windows Hello for Business\" and succeeded_ == \"true\"\r\n    | extend authenticationStepDateTime_ = todatetime(tostring(parse_json(AuthenticationDetails)[0].authenticationStepDateTime))\r\n    | extend displayName_ = tostring(DeviceDetail.displayName)\r\n    | extend trustType_ = tostring(DeviceDetail.trustType)\r\n    | extend deviceId_ = tostring(DeviceDetail.deviceId);\r\nWHFBUsage\r\n| project UserPrincipalName, Identity, displayName_\r\n| join kind=fullouter (DistinctRegUsers\r\n    | project UserPrincipalName_s, UserDisplayName_s)\r\n    on $left.UserPrincipalName == $right.UserPrincipalName_s\r\n| summarize WHFBRegisteredCount=count() by UserPrincipalName_s, UserPrincipalName\r\n| extend UserPrincipalNameC= iif(isempty(UserPrincipalName), \"Not Using WHFB\", \"Using WHFB\")\r\n| project UserPrincipalNameC, UserPrincipalName_s, WHFBRegisteredCount\r\n| render piechart\r\n\r\n\r\n\r\n\r\n\r\n",
+        "query": "let DistinctRegUsers = UserDetailsNewTable_Latest_CL\r\n| distinct UserPrincipalName_s, UserDisplayName_s;\r\nlet WHFBUsage = SigninLogs\r\n    | where Resource == \"Microsoft.aadiam\" and AppDisplayName == \"Windows Sign In\"\r\n    | extend authenticationMethod_ = tostring(parse_json(AuthenticationDetails)[0].authenticationMethod)\r\n    | extend succeeded_ = tostring(parse_json(AuthenticationDetails)[0].succeeded)\r\n    | where authenticationMethod_ == \"Windows Hello for Business\" and succeeded_ == \"true\"\r\n    | extend authenticationStepDateTime_ = todatetime(tostring(parse_json(AuthenticationDetails)[0].authenticationStepDateTime))\r\n    | extend displayName_ = tostring(DeviceDetail.displayName)\r\n    | extend trustType_ = tostring(DeviceDetail.trustType)\r\n    | extend deviceId_ = tostring(DeviceDetail.deviceId);\r\nWHFBUsage\r\n| project UserPrincipalName, Identity, displayName_\r\n| join kind=fullouter (DistinctRegUsers\r\n    | project UserPrincipalName_s, UserDisplayName_s)\r\n    on $left.UserPrincipalName == $right.UserPrincipalName_s\r\n| summarize WHFBRegisteredCount=count() by UserPrincipalName_s, UserPrincipalName\r\n| extend UserPrincipalNameC= iif(isempty(UserPrincipalName), \"Not Using WHFB\", \"Using WHFB\")\r\n| project UserPrincipalNameC, UserPrincipalName_s, WHFBRegisteredCount\r\n| render piechart\r\n\r\n\r\n\r\n\r\n\r\n",
         "size": 2,
         "title": "Windows Hello for Business Usage - User Count",
         "timeContext": {
@@ -57,7 +57,7 @@
         "visualization": "table"
       },
       "name": "query - 1"
-    },
+    }
     ],
 
   "fallbackResourceIds": [
