@@ -121,7 +121,23 @@ Once the data is moved to the Custom Log, we would see it as below
 ![image](https://user-images.githubusercontent.com/111733151/185877209-49c549f6-8611-4548-8640-a8b17f8f92ff.png)
 
 
-Now, we can use this Registration details from the Custom Log, Compare with our WHFB Usage from Sign in Logs and generate the Analysis. The JSON code for this specific part can be used to build on top of [Michael's workbook](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-ad-sign-in-logs-workbooks-know-who-is-using-windows-hello/ba-p/2661980)
+Now, we can use this Registration details from the Custom Log, Compare with our WHFB Usage from Sign in Logs and generate the Analysis. 
+
+Go to the ‘Monitoring’ section in the AAD Portal and the ‘Workbooks’ blade there - select the ‘Empty’ Quick start template.
+
+<img width="764" alt="image" src="https://user-images.githubusercontent.com/111733151/188559763-7af3f0c6-6268-43f9-a288-6748a6eb4760.png">
+
+Select the “Advanced editor” button
+
+<img width="472" alt="image" src="https://user-images.githubusercontent.com/111733151/188559848-a7bffeca-0641-46fa-9b15-d87f047d479d.png">
+
+Copy/paste the JSON from the WHFBRegistrationUsageComparision.json and DO NOT FORGET TO CHANGE THE CUSTOM LOG NAME AS BELOW, then click Apply
+
+<img width="1042" alt="image" src="https://user-images.githubusercontent.com/111733151/188560193-44158a6b-2304-43b4-9652-8a8235b00621.png">
+
+You’ll immediately see the results; select ‘Save as’ and save the workbook.
+
+<img width="481" alt="image" src="https://user-images.githubusercontent.com/111733151/188560442-f4338438-e40e-449b-adfd-036fce5dcafa.png">
 
 
 
