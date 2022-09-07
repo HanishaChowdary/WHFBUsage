@@ -1,4 +1,4 @@
-# WHFB Usage Analysis with Sign in Logs + User Registration Details
+# WHFB Usage Dashboard
 
 
 
@@ -14,7 +14,7 @@ As you know, the User registration details for WHFB(or any method registered) ar
 
 
 
-So, I was also looking to retrieve the User Registration Details in larger datasets and compare it with the Usage for the last 30 days (max). 
+So, inspiring from Michael's blog, I was also looking to retrieve the User Registration Details in larger datasets and compare it with the Usage for the last 30 days (max). 
 
 This post will take you through the steps of retrieving the User Registration Details for WHFB, send to a Custom Log in the Log Analytics Workspace and then visualize the Usage data with respect to the Registration Details.
 
