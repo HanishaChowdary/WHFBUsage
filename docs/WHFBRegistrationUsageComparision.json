@@ -1,14 +1,11 @@
 {
-
   "version": "Notebook/1.0",
-
   "items": [
-
     {
       "type": 3,
       "content": {
         "version": "KqlItem/1.0",
-        "query": "let DistinctRegUsers = UserDetailsNewTable_Latest_CL\r\n| distinct UserPrincipalName_s, UserDisplayName_s;\r\nlet WHFBUsage = SigninLogs\r\n    | where Resource == \"Microsoft.aadiam\" and AppDisplayName == \"Windows Sign In\"\r\n    | extend authenticationMethod_ = tostring(parse_json(AuthenticationDetails)[0].authenticationMethod)\r\n    | extend succeeded_ = tostring(parse_json(AuthenticationDetails)[0].succeeded)\r\n    | where authenticationMethod_ == \"Windows Hello for Business\" and succeeded_ == \"true\"\r\n    | extend authenticationStepDateTime_ = todatetime(tostring(parse_json(AuthenticationDetails)[0].authenticationStepDateTime))\r\n    | extend displayName_ = tostring(DeviceDetail.displayName)\r\n    | extend trustType_ = tostring(DeviceDetail.trustType)\r\n    | extend deviceId_ = tostring(DeviceDetail.deviceId);\r\nWHFBUsage\r\n| project UserPrincipalName, Identity, displayName_\r\n| join kind=fullouter (DistinctRegUsers\r\n    | project UserPrincipalName_s, UserDisplayName_s)\r\n    on $left.UserPrincipalName == $right.UserPrincipalName_s\r\n| summarize WHFBRegisteredCount=count() by UserPrincipalName_s, UserPrincipalName\r\n| extend UserPrincipalNameC= iif(isempty(UserPrincipalName), \"Not Using WHFB\", \"Using WHFB\")\r\n| project UserPrincipalNameC, UserPrincipalName_s, WHFBRegisteredCount\r\n| render piechart\r\n\r\n\r\n\r\n\r\n\r\n",
+        "query": "let DistinctRegUsers = UserDetailsNewTable_Latest_CL\r\n| distinct UserPrincipalName_s, UserDisplayName_s;\r\nlet WHFBUsage = SigninLogs\r\n    | where Resource == \"Microsoft.aadiam\" and AppDisplayName == \"Windows Sign In\"\r\n    | extend authenticationMethod_ = tostring(parse_json(AuthenticationDetails)[0].authenticationMethod)\r\n    | extend succeeded_ = tostring(parse_json(AuthenticationDetails)[0].succeeded)\r\n    | where authenticationMethod_ == \"Windows Hello for Business\" and succeeded_ == \"true\"\r\n    | extend authenticationStepDateTime_ = todatetime(tostring(parse_json(AuthenticationDetails)[0].authenticationStepDateTime))\r\n    | extend displayName_ = tostring(DeviceDetail.displayName)\r\n    | extend trustType_ = tostring(DeviceDetail.trustType)\r\n    | extend deviceId_ = tostring(DeviceDetail.deviceId);\r\nWHFBUsage\r\n| project UserPrincipalName, Identity, displayName_\r\n| extend UserPrincipalName_lower = tolower(UserPrincipalName)\r\n| join kind=rightouter (DistinctRegUsers\r\n    | project UserPrincipalName_s, UserDisplayName_s\r\n    | extend UserPrincipalName_s_lower = tolower(UserPrincipalName_s))\r\n    on $left.UserPrincipalName_lower == $right.UserPrincipalName_s_lower\r\n| extend UserPrincipalNameC= iif(isempty(UserPrincipalName), \"Not Using WHFB\", \"Using WHFB\")\r\n| summarize count() by UserPrincipalNameC\r\n| render piechart\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
         "size": 2,
         "title": "Windows Hello for Business Usage - User Count",
         "timeContext": {
@@ -19,14 +16,8 @@
         "chartSettings": {
           "seriesLabelSettings": [
             {
-              "seriesName": "Not Using WHFB",
-              "label": "Users registered but not using WHFB",
-              "color": "blue"
-            },
-            {
-              "seriesName": "Using WHFB",
-              "label": "Users registered and using WHFB",
-              "color": "green"
+              "seriesName": "Not using WHFB",
+              "color": "orange"
             }
           ],
           "ySettings": {
@@ -58,14 +49,10 @@
       },
       "name": "query - 1"
     }
-    ],
-
-  "fallbackResourceIds": [
-
-    "/subscriptions/0db00944-ea10-4a46-8279-11a245ece0ba/resourcegroups/aad-loganalytics/providers/microsoft.operationalinsights/workspaces/aad-loganalytics-september-2020"
-
   ],
-
+  "fallbackResourceIds": [
+    "/subscriptions/782d9024-b2a4-4272-a40c-917567051ab1/resourcegroups/aadassessment/providers/microsoft.operationalinsights/workspaces/azureadassessmentworkspace",
+    "/subscriptions/782d9024-b2a4-4272-a40c-917567051ab1/resourcegroups/defaultresourcegroup-cus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-782d9024-b2a4-4272-a40c-917567051ab1-cus"
+  ],
   "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
-
 }
