@@ -142,4 +142,13 @@ You’ll immediately see the results; select ‘Save as’ and save the workbook
 
 The first section in the dashboard shows a graphical representation of the total number of users registered for WHFB in the tenant and the number of users actively using WHFB after their registration. This helps any organization to review their WHFB usage rate and decide on actions needed further to move onward into the Secure World
 
-Stay tuned for more insights and next version soon. Happy Learning!!
+Similar logic can be replicated for other Authentication Methods as well to track the progress of Passwordless in the organization.
+
+<img width="190" alt="image" src="https://user-images.githubusercontent.com/111733151/190978672-b1edef4d-414b-41f3-8dca-641e6c886027.png">
+
+
+
+Stay tuned for more insights and next version soon. 
+
+
+Happy Learning!!
