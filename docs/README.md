@@ -140,6 +140,6 @@ You’ll immediately see the results; select ‘Save as’ and save the workbook
 <img width="481" alt="image" src="https://user-images.githubusercontent.com/111733151/188560442-f4338438-e40e-449b-adfd-036fce5dcafa.png">
 
 
-The first section in the dashboard shows a graphical representation of the total number of users registered for WHFB in the tenant and the number of users actively using WHFB after their registration. This helps any customer to review their WHFB usage rate and decide on actions needed further to move onward into the Secure World
+The first section in the dashboard shows a graphical representation of the total number of users registered for WHFB in the tenant and the number of users actively using WHFB after their registration. This helps any organization to review their WHFB usage rate and decide on actions needed further to move onward into the Secure World
 
 Stay tuned for more insights and next version soon. Happy Learning!!
