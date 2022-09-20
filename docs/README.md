@@ -144,7 +144,7 @@ The first section in the dashboard shows a graphical representation of the total
 
 Similar logic can be replicated for other Authentication Methods as well to track the progress of Passwordless in the organization.
 
-<img width="190" alt="image" src="https://user-images.githubusercontent.com/111733151/190978672-b1edef4d-414b-41f3-8dca-641e6c886027.png">
+<img width="190" alt="image" src="https://user-images.githubusercontent.com/111733151/190978672-b1edef4d-414b-41f3-8dca-641e6c886027.png">                                                                               <img width="218" alt="image" src="https://user-images.githubusercontent.com/111733151/191181751-f1f37a86-81c3-423b-af3e-ff95af849c90.png">
 
 
 
